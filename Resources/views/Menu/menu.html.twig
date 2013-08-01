@@ -22,7 +22,7 @@
     {% set options = options|merge({'currentClass': 'active'}) %}
 {% endif %}
 
-{% set listAttributes = item.childrenAttributes %}
+{% set listAttributes = options.attr|default({})|merge(item.childrenAttributes) %}
 {{ block('list') -}}
 {% endblock %}
 
